@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation myPandoc</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" type="image/x-icon" href="https://intra.epitech.eu/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/androgyne" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/james-stroker" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <div class="page-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="/api/placeholder/40/40" alt="myPandoc Logo">
+                <h1>myPandoc</h1>
+            </div>
+
+            <ul class="nav-links">
+                <li class="active"><a href="#introduction"><i class="fas fa-home"></i> Introduction</a></li>
+                <li><a href="#installation"><i class="fas fa-download"></i> Installation</a></li>
+                <li><a href="#utilisation"><i class="fas fa-terminal"></i> Utilisation</a></li>
+                <li><a href="#formats"><i class="fas fa-file-alt"></i> Formats supportés</a></li>
+                <li><a href="#architecture"><i class="fas fa-project-diagram"></i> Architecture</a></li>
+                <li><a href="#parsing"><i class="fas fa-code"></i> Bibliothèque de parsing</a></li>
+                <li><a href="#exemples"><i class="fas fa-lightbulb"></i> Exemples</a></li>
+                <li><a href="#tests"><i class="fas fa-vial"></i> Tests</a></li>
+                <li><a href="#bonus"><i class="fas fa-star"></i> Fonctionnalités bonus</a></li>
+                <li><a href="#contributeurs"><i class="fas fa-users"></i> Contributeurs</a></li>
+            </ul>
+
+            <div class="theme-switch">
+                <span>Mode sombre</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </nav>
+
+        <main>
+            <div class="content">
+                <header>
+                    <h1>myPandoc Documentation</h1>
+                    <p class="subtitle">Convertisseur de documents inspiré du projet Pandoc</p>
+                </header>
+
+                <section id="introduction" class="hero" data-aos="fade-up">
+                    <div class="hero-content">
+                        <h2>Qu'est-ce que myPandoc?</h2>
+                        <p>myPandoc est un convertisseur de documents inspiré du projet Pandoc original. Ce programme permet de convertir des documents entre différents formats (XML, JSON, Markdown) tout en préservant leur structure et leur contenu.</p>
+                        <div class="cta-buttons">
+                            <a href="#installation" class="btn primary"><i class="fas fa-download"></i> Installer</a>
+                            <a href="#utilisation" class="btn secondary"><i class="fas fa-book"></i> Guide d'utilisation</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="/api/placeholder/400/300" alt="myPandoc Illustration">
+                    </div>
+                </section>
+
+                <section id="fonctionnalites" class="features" data-aos="fade-up">
+                    <h2 style="color: black;" >Fonctionnalités principales</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-exchange-alt"></i>
+                            <h3>Conversion multi-formats</h3>
+                            <p>Convertissez facilement entre XML, JSON et Markdown</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-magic"></i>
+                            <h3>Détection automatique</h3>
+                            <p>Détection automatique du format d'entrée</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <h3>Bibliothèque custom</h3>
+                            <p>Bibliothèque de parsing personnalisée en Haskell</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-file-code"></i>
+                            <h3>Structure préservée</h3>
+                            <p>Conservation de la structure du document pendant la conversion</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section  id="installation" data-aos="fade-up">
+                    <h2 style="color: black;">Installation</h2>
+                    
+                    <h3 style="color: black;" >Prérequis</h3>
+                    <ul>
+                        <li ><a href="https://docs.haskellstack.org/en/stable/README/" target="_blank">Stack</a> (version 2.1.3 ou supérieure)</li>
+                        <li>GHC (installé automatiquement par Stack)</li>
+                    </ul>
+
+                    <h3 style="color: black;" >Compilation</h3>
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Terminal</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="code-block"><code>make</code></pre>
+                    </div>
+                    <p style="color: black;" >Cette commande va compiler le projet et générer l'exécutable <code>mypandoc</code>.</p>
+                </section>
+
+                <section id="utilisation" data-aos="fade-up">
+                    <h2 style="color: black;">Utilisation</h2>
+                    
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Syntaxe</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="code-block"><code>./mypandoc -i ifile -f oformat [-o ofile] [-e iformat]</code></pre>
+                    </div>
+
+                    <h3 style="color: black;" >Options</h3>
+                    <ul>
+                        <li><code>-i ifile</code>: Chemin vers le fichier d'entrée (obligatoire)</li>
+                        <li><code>-f oformat</code>: Format de sortie (xml, json, markdown) (obligatoire)</li>
+                        <li><code>-o ofile</code>: Chemin vers le fichier de sortie (optionnel, stdout par défaut)</li>
+                        <li><code>-e iformat</code>: Format d'entrée (xml, json, markdown) (optionnel, détection automatique par défaut)</li>
+                    </ul>
+
+                    <h3 style="color: black;" >Exemples d'utilisation</h3>
+                    
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Convertir un fichier XML en Markdown</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="code-block"><code>./mypandoc -i example.xml -f markdown</code></pre>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Convertir un fichier JSON en XML et sauvegarder le résultat</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="code-block"><code>./mypandoc -i document.json -f xml -o result.xml</code></pre>
+                    </div>
+
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Spécifier explicitement le format d'entrée</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="code-block"><code>./mypandoc -i document.txt -e json -f markdown -o result.md</code></pre>
+                    </div>
+                </section>
+
+                <section id="formats" data-aos="fade-up">
+                    <h2 style="color: black;" >Formats supportés</h2>
+                    
+                    <div class="component-card">
+                        <h3><i class="fas fa-code"></i> XML</h3>
+                        <p>XML (Extensible Markup Language) est un langage de balisage et un format de fichier pour stocker, transmettre et reconstruire des données arbitraires.</p>
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Exemple de document XML</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="code-block"><code>&lt;document&gt;
+    &lt;header title="Simple example"&gt;&lt;/header&gt;
+    &lt;body&gt;
+        &lt;paragraph&gt;This is a simple example&lt;/paragraph&gt;
+    &lt;/body&gt;
+&lt;/document&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <h3><i class="fas fa-brackets-curly"></i> JSON</h3>
+                        <p>JSON (JavaScript Object Notation) est un format léger d'échange de données qui est un sous-ensemble du langage JavaScript.</p>
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Exemple de document JSON</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="code-block"><code>{
+    "header": {
+        "title": "Simple example"
+    },
+    "body": [
+        "This is a simple example"
+    ]
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="component-card">
+                        <h3><i class="fas fa-markdown"></i> Markdown</h3>
+                        <p>Markdown est un langage de balisage léger pour créer du texte formaté à l'aide d'un éditeur de texte brut.</p>
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Exemple de document Markdown</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="code-block"><code>---
+title: Simple example
+---
+
+This is a simple example</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="architecture" data-aos="fade-up">
+                    <h2 style="color: black;" >Architecture du projet</h2>
+                    
+                    <div class="arch-diagram">
+                        <img src="/api/placeholder/600/300" alt="Architecture du projet myPandoc">
+                    </div>
+                    
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Structure du projet</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="code-block"><code>.
+├── app/                    # Code source de l'application principale
+│   └── Main.hs             # Point d'entrée du programme
+├── src/                    # Bibliothèques et modules
+│   ├── Parser/             # Notre bibliothèque de parsing custom
+│   │   ├── Combinators.hs  # Combinateurs de parsers
+│   │   ├── Core.hs         # Fonctions de base pour le parsing
+│   │   └── ...
+│   ├── Document/           # Définition de la structure de document
+│   │   ├── Types.hs        # Types de données pour représenter un document
+│   │   └── ...
+│   ├── Format/             # Parsers et générateurs pour chaque format
+│   │   ├── XML.hs          # Parser et générateur XML
+│   │   ├── JSON.hs         # Parser et générateur JSON
+│   │   ├── Markdown.hs     # Parser et générateur Markdown
+│   │   ├── ConvJson.hs     # Converstiseur JSON
+│   │   └── ...
+├── test/                   # Tests unitaires et tests d'intégration
+├── examples/               # Exemples de documents dans différents formats
+├── Makefile                # Pour la compilation du projet
+├── package.yaml            # Configuration du package hpack
+├── stack.yaml              # Configuration de Stack
+└── README.md               # Ce fichier</code></pre>
+                    </div>
+
+                    <h3 style="color: black;" >Composants clés</h3>
+                    <div class="features-grid">
+                        <div class="component-card">
+                            <h3><i class="fas fa-book"></i> Bibliothèque de Parsing</h3>
+                            <p>Une bibliothèque de parsing personnalisée développée pour ce projet qui facilite l'implémentation des parsers pour chaque format.</p>
+                        </div>
+                        <div class="component-card">
+                            <h3><i class="fas fa-sitemap"></i> Structure de Document</h3>
+                            <p>Une représentation intermédiaire commune qui permet de convertir facilement entre les différents formats.</p>
+                        </div>
+                        <div class="component-card">
+                            <h3><i class="fas fa-code"></i> Parsers de Format</h3>
+                            <p>Modules spécifiques pour analyser et générer chaque format supporté (XML, JSON, Markdown).</p>
+                        </div>
+                        <div class="component-card">
+                            <h3><i class="fas fa-terminal"></i> CLI</h3>
+                            <p>Interface en ligne de commande pour interagir avec le programme.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="parsing" data-aos="fade-up">
+                    <h2 style="color: black;">Bibliothèque de Parsing</h2>
+                    
+                    <p style="color: black;">Pour ce projet, nous avons développé notre propre bibliothèque de parsing en Haskell qui nous aide à implémenter les parsers pour les différents formats de fichiers.</p>
+                    
+                    <div class="interface-section">
+                        <h3 class="icn">Exemple de Combinateurs</h3>
+                        
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Parser/Combinators.hs</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="code-block"><code>-- Exemples de combinateurs de parsers
+-- Ces fonctions permettent de combiner des parsers simples
+-- pour créer des parsers plus complexes
+
+-- Parser pour une chaîne spécifique
+string :: String -> Parser String
+string [] = return []
+string (c:cs) = do
+    char c
+    string cs
+    return (c:cs)
+
+-- Parser pour un choix entre deux parsers
+(&lt;|&gt;) :: Parser a -> Parser a -> Parser a
+p1 &lt;|&gt; p2 = Parser $ \input -> 
+    case runParser p1 input of
+        Left _ -> runParser p2 input
+        right -> right
+
+-- Parser qui applique une fonction à un résultat
+(&lt;$&gt;) :: (a -> b) -> Parser a -> Parser b
+f &lt;$&gt; p = Parser $ \input ->
+    case runParser p input of
+        Left err -> Left err
+        Right (rest, res) -> Right (rest, f res)</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="exemples" data-aos="fade-up">
+                    <h2 style="color: black;">Exemples</h2>
+                    
+                    <div class="component-card">
+                        <h3>Exemple de conversion XML vers Markdown</h3>
+                        
+                        <h4 class="icn" >Fichier d'entrée (example.xml)</h4>
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>example.xml</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="code-block"><code>&lt;document&gt;
+    &lt;header title="Simple example" author="John Doe" date="2023-05-15"&gt;&lt;/header&gt;
+    &lt;body&gt;
+        &lt;paragraph&gt;Ceci est un paragraphe d'exemple avec du texte &lt;italic&gt;en italique&lt;/italic&gt; et &lt;bold&gt;en gras&lt;/bold&gt;.&lt;/paragraph&gt;
+        &lt;section title="Une section"&gt;
+            &lt;paragraph&gt;Contenu de la section avec un &lt;link href="https://example.com"&gt;lien&lt;/link&gt;.&lt;/paragraph&gt;
+        &lt;/section&gt;
+    &lt;/body&gt;
+&lt;/document&gt;</code></pre>
+                        </div>
+                        
+                        <h4 class="icn" >Commande</h4>
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="code-block"><code>./mypandoc -i example.xml -f markdown -o result.md</code></pre>
+                        </div>
+                        
+                        <h4 class="icn" >Résultat (result.md)</h4>
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>result.md</span>
+                                <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                            </div>
+                            <pre class="code-block"><code>---
+title: Simple example
+author: John Doe
+date: 2023-05-15
+---
+
+Ceci est un paragraphe d'exemple avec du texte *en italique* et **en gras**.
+
+## Une section
+
+Contenu de la section avec un [lien](https://example.com).</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tests" data-aos="fade-up">
+                    <h2 style="color: black;" >Tests</h2>
+                    
+                    <p style="color: black;" >Pour exécuter les tests unitaires et d'intégration:</p>
+                    
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Terminal</span>
+                            <button class="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                        </div>
+                        <pre class="code-block"><code>make tests_run</code></pre>
+                    </div>
+                    
+                    <p style="color: black;" >Notre suite de tests vérifie la bonne conversion entre les différents formats ainsi que le bon fonctionnement de la bibliothèque de parsing.</p>
+                </section>
+
+                <section id="bonus" data-aos="fade-up">
+                    <h2 style="color: black;" >Fonctionnalités bonus</h2>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-table"></i>
+                            <h3>Support des tableaux</h3>
+                            <p>Support amélioré pour les tableaux en Markdown</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-search"></i>
+                            <h3>Détection avancée</h3>
+                            <p>Détection avancée du format d'entrée</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Gestion des erreurs</h3>
+                            <p>Gestion des erreurs détaillée et informative</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-sticky-note"></i>
+                            <h3>Notes de bas de page</h3>
+                            <p>Support pour les notes de bas de page</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="contributeurs" data-aos="fade-up">
+                    <h2 style="color: black;" >Contributeurs</h2>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <i class="fas fa-user icn"></i>
+                            <h3>GBETCHEDJI James</h3>
+                            <p>@Noge</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-user icn"></i>
+                            <h3>Salemgnk</h3>
+                            <p>@Scorpi7</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-user icn"></i>
+                            <h3>KAKPO Emmanuelle</h3>
+                            <p>@emmanuellakakpo</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-user icn"></i>
+                            <h3>Elias Hounnou</h3>
+                            <p>@saliehsab</p>
+                        </div>
+                    </div>
+                    
+                    <p>Ce projet est réalisé dans le cadre du module B-FUN-400 à Epitech.</p>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <footer class="bg-dark text-light py-4 mt-auto">
+        <div class="container">
+            <!-- Ligne du haut : myPandoc Project -->
+            <div class="row justify-content-center text-center mb-4">
+                <div class="col-md-6">
+                    <h5 class="text-uppercase mb-2">myPandoc Project</h5>
+                    <p class="mb-1">&copy; 2025 myPandoc Project Team</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://github.com/nogebeat/mypandoc" class="text-light">
+                            <i class="fab fa-github"></i> Code source
+                        </a>
+                        <a href="mailto:james.gbetchedji@epitech.eu" class="text-light">
+                            <i class="fas fa-envelope"></i> Contact
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ligne du bas : Réseaux et Contact -->
+            <div class="row">
+                <!-- Réseaux -->
+                <div class="col-md-6 mb-3 text-center text-md-start">
+                    <h5 class="text-uppercase">Réseaux</h5>
+                    <div class="d-flex justify-content-center justify-content-md-start gap-3 mt-2">
+                        <a href="#"><i class="fab fa-instagram fa-lg text-light"></i></a>
+                        <a href="#"><i class="fab fa-twitter fa-lg text-light"></i></a>
+                        <a href="https://wa.me/22956549199"><i class="fab fa-whatsapp fa-lg text-light"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-md-6 mb-3 text-center text-md-end">
+                    <h5 class="text-uppercase">Contact</h5>
+                    <ul class="list-unstyled">
+                        <li>Adresse: Avenue ..., 01 BP 2377 Cotonou, Bénin</li>
+                        <li>Téléphone: <a href="tel:+22956549199" class="text-light">+229 56549199</a></li>
+                        <li>Email: <a href="mailto:nogeproductions@gmail.com" class="text-light">nogeproductions@gmail.com</a></li>
+                        <li>WhatsApp: <a href="https://wa.me/22956549199" class="text-light">Écrivez-nous ici</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme) {
+                document.documentElement.setAttribute('data-theme', currentTheme);
+                if (currentTheme === 'dark') {
+                    themeToggle.checked = true;
+                }
+            } else {
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                if (prefersDarkScheme.matches) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    themeToggle.checked = true;
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+            
+            themeToggle.addEventListener('change', () => {
+                if (themeToggle.checked) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+            
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const codeBlock = button.closest('.code-container').querySelector('code');
+                    const textArea = document.createElement('textarea');
+                    textArea.value = codeBlock.textContent;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    button.textContent = 'Copié !';
+                    setTimeout(() => {
+                        button.innerHTML = '<i class="fas fa-copy"></i> Copy';
+                    }, 2000);
+                });
+            });
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>
